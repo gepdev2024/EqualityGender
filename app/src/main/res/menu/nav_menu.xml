@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/beranda"
+        android:icon="@drawable/beranda"
+        android:title="Beranda"/>
+
+    <item
+        android:id="@+id/informasi"
+        android:icon="@drawable/informasi"
+        android:title="Informasi"/>
+
+    <item
+        android:id="@+id/berbagi"
+        android:icon="@drawable/berbagi"
+        android:title="Berbagi"/>
+
+    <item
+        android:id="@+id/lapor"
+        android:icon="@drawable/lapor"
+        android:title="Lapor"/>
+
+    <item
+        android:id="@+id/profil"
+        android:icon="@drawable/profil"
+        android:title="Profil"/>
+</menu>
