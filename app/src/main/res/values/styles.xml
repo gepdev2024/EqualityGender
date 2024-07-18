@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!-- Customize box background color -->
+        <item name="boxBackgroundColor">@color/white</item>
+        <!-- Customize box stroke color -->
+        <item name="boxStrokeColor">@color/black</item>
+        <!-- Customize hint text color -->
+        <item name="android:textColorHint">@color/black</item>
+        <!-- Customize password visibility toggle color -->
+        <item name="passwordToggleTint">@color/black</item>
+        <!-- Customize filled box text color -->
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+</resources>

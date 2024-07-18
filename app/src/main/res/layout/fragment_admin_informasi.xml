@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.masyarakat.InformasiFragment">
+    tools:context=".fragments.admin.AdminInformasiFragment">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -46,4 +46,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonFilterKategori" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCreate"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@android:drawable/ic_input_add"
+        android:backgroundTint="@color/colorPrimary2"
+        app:tint="@android:color/white"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

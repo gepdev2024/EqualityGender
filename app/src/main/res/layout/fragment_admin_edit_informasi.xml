@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@color/colorPrimary2"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="Edit Informasi"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Judul -->
+            <EditText
+                android:id="@+id/input_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Judul"
+                android:inputType="text"
+                android:padding="12dp" />
+
+            <!-- Kategori -->
+            <Spinner
+                android:id="@+id/spinner_kategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="5dp" />
+
+            <!-- Tanggal -->
+            <EditText
+                android:id="@+id/input_tanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:hint="Masukkan Tanggal"
+                android:inputType="date"
+                android:padding="12dp" />
+
+            <!-- Gambar -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_upload_gambar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:drawableRight="@drawable/ic_upload"
+                android:hint="Masukkan Gambar"
+                android:padding="12dp"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+            <!-- ImageView to display the selected image -->
+            <ImageView
+                android:id="@+id/image_preview"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:layout_marginBottom="12dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
+            <!-- Deskripsi -->
+            <EditText
+                android:id="@+id/input_deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Masukkan Deskripsi"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="12dp" />
+
+            <!-- Button Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+
+                android:orientation="horizontal">
+
+                <!-- Reset Button -->
+                <Button
+                    android:id="@+id/button_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:padding="18dp"
+                    android:text="Reset"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <!-- Update Button -->
+                <Button
+                    android:id="@+id/button_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary2"
+                    android:padding="18dp"
+                    android:text="Update"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ProgressBar -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/colorPrimary2"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

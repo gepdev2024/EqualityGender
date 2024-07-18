@@ -1,4 +1,4 @@
-package com.example.equalitygender.fragments
+package com.example.equalitygender.fragments.masyarakat
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

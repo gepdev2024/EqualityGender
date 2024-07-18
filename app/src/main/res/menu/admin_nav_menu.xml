@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboard"
+        android:icon="@drawable/beranda"
+        android:title="Dashboard"/>
+
+    <item
+        android:id="@+id/informasi"
+        android:icon="@drawable/informasi"
+        android:title="Informasi"/>
+
+    <item
+        android:id="@+id/laporan"
+        android:icon="@drawable/lapor"
+        android:title="Laporan"/>
+
+
+    <item
+        android:id="@+id/profil"
+        android:icon="@drawable/profil"
+        android:title="Profil"/>
+</menu>

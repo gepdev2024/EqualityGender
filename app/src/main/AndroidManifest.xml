@@ -13,14 +13,19 @@
         android:theme="@style/Theme.EqualityGender"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Awal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Masyarakat"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Admin"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

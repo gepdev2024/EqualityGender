@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/kategori_semua"
+        android:title="Semua"/>
+    <item
+        android:id="@+id/kategori_kebijakan_dan_hukum"
+        android:title="Kebijakan dan Hukum"/>
+    <item
+        android:id="@+id/kategori_edukasi"
+        android:title="Edukasi"/>
+    <item
+        android:id="@+id/kategori_kekerasan"
+        android:title="Kekerasan"/>
+    <item
+        android:id="@+id/kategori_ekonomi"
+        android:title="Ekonomi"/>
+    <item
+        android:id="@+id/kategori_lain_lain"
+        android:title="Lain-lain"/>
+</menu>
