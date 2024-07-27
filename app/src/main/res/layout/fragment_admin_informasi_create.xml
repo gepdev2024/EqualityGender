@@ -60,6 +60,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/edit_text_background"
                 android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/material_dynamic_neutral30"
                 android:hint="Masukkan Tanggal"
                 android:inputType="date"
                 android:padding="12dp" />
@@ -72,6 +73,7 @@
                 android:background="@drawable/edit_text_background"
                 android:drawableRight="@drawable/ic_upload"
                 android:hint="Masukkan Gambar"
+                android:drawableTint="@color/material_dynamic_neutral30"
                 android:padding="12dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"

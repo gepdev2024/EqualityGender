@@ -29,6 +29,7 @@ class AdminInformasiCreateFragment : Fragment() {
     private lateinit var imagePreview: ImageView
     private lateinit var progressBar: ProgressBar
     private lateinit var buttonSubmit: Button
+    private lateinit var inputTanggal: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +49,8 @@ class AdminInformasiCreateFragment : Fragment() {
         imagePreview = view.findViewById(R.id.image_preview)
         progressBar = view.findViewById(R.id.progress_bar)
         buttonSubmit = view.findViewById(R.id.button_submit)
+        inputTanggal = view.findViewById(R.id.input_tanggal)
+
         setupSpinner()
 
         view.findViewById<Button>(R.id.button_upload_gambar).setOnClickListener {
@@ -62,13 +65,19 @@ class AdminInformasiCreateFragment : Fragment() {
             }
         }
 
-        view.findViewById<EditText>(R.id.input_tanggal).setOnClickListener {
+        inputTanggal.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                showDatePickerDialog()
+            }
+        }
+
+        inputTanggal.setOnClickListener {
             showDatePickerDialog()
         }
     }
 
     private fun setupSpinner() {
-        val categories = arrayOf("Pilih Kategori","Kebijakan dan Hukum", "Edukasi", "Kekerasan", "Ekonomi", "Lain-lain")
+        val categories = arrayOf("Pilih Kategori", "Kebijakan dan Hukum", "Edukasi", "Kekerasan", "Ekonomi", "Lain-lain")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         kategoriSpinner.adapter = adapter
@@ -80,7 +89,7 @@ class AdminInformasiCreateFragment : Fragment() {
             val selectedDate = Calendar.getInstance()
             selectedDate.set(year, month, dayOfMonth)
             val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.US)
-            view?.findViewById<EditText>(R.id.input_tanggal)?.setText(dateFormat.format(selectedDate.time))
+            inputTanggal.setText(dateFormat.format(selectedDate.time))
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         datePickerDialog.show()
     }
@@ -104,7 +113,7 @@ class AdminInformasiCreateFragment : Fragment() {
     private fun saveInformation() {
         val title = view?.findViewById<EditText>(R.id.input_judul)?.text.toString()
         val category = kategoriSpinner.selectedItem.toString()
-        val date = view?.findViewById<EditText>(R.id.input_tanggal)?.text.toString()
+        val date = inputTanggal.text.toString()
         val description = view?.findViewById<EditText>(R.id.input_deskripsi)?.text.toString()
 
         if (title.isEmpty() || category.isEmpty() || date.isEmpty() || description.isEmpty() || imageUri == null) {
@@ -131,8 +140,9 @@ class AdminInformasiCreateFragment : Fragment() {
                 firestore.collection("informasi")
                     .add(info)
                     .addOnSuccessListener {
-                        Toast.makeText(requireContext(), "Article successfully added", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Artikel berhasil ditambah!", Toast.LENGTH_SHORT).show()
                         clearFields()
+                        parentFragmentManager.popBackStack()
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(requireContext(), "Error adding article: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -150,7 +160,7 @@ class AdminInformasiCreateFragment : Fragment() {
 
     private fun clearFields() {
         view?.findViewById<EditText>(R.id.input_judul)?.text?.clear()
-        view?.findViewById<EditText>(R.id.input_tanggal)?.text?.clear()
+        inputTanggal.text?.clear()
         view?.findViewById<EditText>(R.id.input_deskripsi)?.text?.clear()
         imagePreview.visibility = View.GONE
         imageUri = null

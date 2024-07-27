@@ -46,9 +46,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
+                android:fontFamily="@font/inter_bold"
+
                 android:textAlignment="center"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textViewDate"
@@ -56,6 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Date"
+                android:fontFamily="@font/inter_semi_bold"
+
                 android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="16sp" />
@@ -65,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/textViewDescription"
@@ -73,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Description"
+                android:fontFamily="@font/inter_regular"
+
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>

@@ -1,24 +1,19 @@
 package com.example.equalitygender
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.equalitygender.fragments.masyarakat.BerandaFragment
 import com.example.equalitygender.fragments.masyarakat.BerbagiFragment
 import com.example.equalitygender.fragments.masyarakat.InformasiFragment
 import com.example.equalitygender.fragments.masyarakat.LaporFragment
-import com.example.equalitygender.fragments.masyarakat.ProfilFragment
+import com.example.equalitygender.fragments.ProfilFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.Fragment
-
-
 
 class Masyarakat : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.masyarakat_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             insets
@@ -43,7 +38,7 @@ class Masyarakat : AppCompatActivity() {
         }
     }
 
-    private fun makeCurrentFragment(fragment: Fragment)=
+    fun makeCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wraper, fragment)
             commit()

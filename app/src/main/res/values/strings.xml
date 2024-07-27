@@ -1,5 +1,18 @@
+<!--<resources>-->
+<!--    <string name="app_name">EqualityGender</string>-->
+<!--    &lt;!&ndash; TODO: Remove or change this placeholder text &ndash;&gt;-->
+<!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+<!--    -->
+<!--</resources>-->
+
 <resources>
     <string name="app_name">EqualityGender</string>
+
+    <string-array name="filter_options">
+        <item>Latest</item>
+        <item>Max Vote</item>
+        <item>Punya Saya</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -17,7 +17,7 @@
             android:id="@+id/imageViewInformasi"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textStyle="bold"
+            android:fontFamily="@font/inter_bold"
             android:textSize="18sp"
             android:layout_marginTop="8dp" />
 
@@ -34,6 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
+            android:fontFamily="@font/inter_regular"
+
             android:textSize="14sp"
             android:layout_marginTop="4dp"
             android:maxLines="5"

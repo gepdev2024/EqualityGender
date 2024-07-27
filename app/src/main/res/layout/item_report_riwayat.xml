@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewKategori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewKodeLaporan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kode Laporan: AAAAAA123"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/textViewStatusLaporan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laporan Diproses"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimary2"
+            android:padding="4dp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textViewTanggalKejadian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10-05-2024 10:17"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/imageViewLaporan"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textViewDeskripsiKejadian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi kejadian"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:maxLines="3"
+            android:ellipsize="end" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

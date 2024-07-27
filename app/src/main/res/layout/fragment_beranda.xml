@@ -1,166 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white">
 
-    <!-- Header Section -->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#92a67a"
+        android:orientation="vertical">
+
+        <!-- Welcome Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary2"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            >
+
+            <TextView
+                android:id="@+id/textViewWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Hai Username!"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewWelcome"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Selamat datang di EqualityGender"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp">
 
-        <EditText
+
+        <!-- Informasi Section -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/greetingText"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/search_background"
-            android:drawableLeft="@drawable/ic_search"
-            android:hint="Search"
-            android:padding="10dp"
-            android:paddingLeft="40dp"
-            android:textColor="#000000"
-            android:textColorHint="#808080" />
-
-        <TextView
-            android:id="@+id/greetingText"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai Rendy!"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Informasi"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLihatSelengkapnyaInformasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+
+                android:text="Lihat selengkapnya >"
+                android:textColor="@color/colorPrimary2"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/greetingText"
-            android:text="Selamat datang di EqualityGender"
-            android:textColor="#ffffff"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/imageViewInformasi"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/textViewInformasiContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingEnd="8dp"
+                android:fontFamily="@font/inter_regular"
+
+                android:textStyle="bold"
+                android:text="Menyuarakan Kesetaraan: Edukasi Kesetaraan Gender untuk Mewujudkan Keadilan"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Berbagi Section -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_marginTop="22dp"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="Notification Icon"
-            android:src="@drawable/ic_notification" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Berbagi"
+                android:textSize="20sp"
+                android:fontFamily="@font/inter_bold"
 
-    <!-- Content Section -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLihatSelengkapnyaBerbagi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat selengkapnya >"
+                android:fontFamily="@font/inter_bold"
+
+                android:textColor="@color/colorPrimary2"
+                android:paddingEnd="8dp"
+                />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginTop="8dp">
 
-            <!-- Article Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/po1"
-                    android:scaleType="centerCrop" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Menyuarakan Kesetaraan: Edukasi Kesetaraan Gender untuk Mewujudkan Keadilan"
-                        android:textSize="16sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="lihat selengkapnya"
-                        android:textColor="#92a67a"
-                        android:layout_marginTop="8dp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- Comments Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp">
+                    android:id="@+id/imageViewUserProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_profile" />
 
                 <TextView
+                    android:id="@+id/textViewBerbagiUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="user"
-                    android:textColor="#000000"
+                    android:text="username"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Halo, semangat ya bagi kalian para pejuang kesetaraan gender"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="9k"
-                        android:drawableLeft="@drawable/ic_like"
-                        android:drawablePadding="8dp"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1111"
-                        android:drawableLeft="@drawable/ic_comment"
-                        android:drawablePadding="8dp"
-                        android:textColor="#000000"
-                        android:textSize="14sp"
-                        android:layout_marginStart="16dp" />
-
-                </LinearLayout>
-
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textViewBerbagiContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+
+                android:text="Halo, semangat ya bagi kalian para pejuang kesetaraan gender"
+                android:textSize="16sp"
+                android:maxLines="3"
+                android:ellipsize="end" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+    </LinearLayout>
 
-    <!--    &lt;!&ndash; Bottom Navigation &ndash;&gt;-->
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="#92a67a"-->
-    <!--        app:menu="@menu/bottom_navigation_menu" />-->
-
-</LinearLayout>
+</ScrollView>

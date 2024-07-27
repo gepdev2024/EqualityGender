@@ -81,10 +81,8 @@ class AdminInformasiFragment : Fragment() {
     private fun showCategoryMenu(view: View) {
         val popupMenu = PopupMenu(requireContext(), view)
         popupMenu.menuInflater.inflate(R.menu.menu_kategori, popupMenu.menu)
-        popupMenu.menu.add(0, R.id.kategori_semua, 0, "Semua") // Add "Semua" option
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.kategori_semua -> fetchInformasi(null) // Show all categories
                 R.id.kategori_kebijakan_dan_hukum -> fetchInformasi("Kebijakan dan Hukum")
                 R.id.kategori_edukasi -> fetchInformasi("Edukasi")
                 R.id.kategori_kekerasan -> fetchInformasi("Kekerasan")

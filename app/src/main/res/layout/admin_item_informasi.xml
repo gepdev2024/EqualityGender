@@ -17,7 +17,8 @@
             android:id="@+id/imageViewInformasi"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:fontFamily="@font/inter_extra_bold"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="8dp" />
@@ -33,6 +35,7 @@
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
             android:text="Description"
             android:textSize="14sp"
             android:layout_marginTop="4dp"
@@ -52,7 +55,9 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary2"
                 android:text="Edit"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_informas"
+                />
 
             <Button
                 android:id="@+id/buttonDelete"

@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/informasi"
-        android:icon="@drawable/informasi"
+        android:icon="@drawable/ic_informas"
         android:title="Informasi"/>
 
     <item
@@ -16,9 +16,10 @@
         android:icon="@drawable/lapor"
         android:title="Laporan"/>
 
+<!--    <item-->
+<!--        android:id="@+id/profil"-->
+<!--        android:icon="@drawable/profil"-->
+<!--        android:title="Profil" />-->
 
-    <item
-        android:id="@+id/profil"
-        android:icon="@drawable/profil"
-        android:title="Profil"/>
+
 </menu>

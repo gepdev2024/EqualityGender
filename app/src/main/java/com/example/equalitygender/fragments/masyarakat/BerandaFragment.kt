@@ -1,60 +1,141 @@
 package com.example.equalitygender.fragments.masyarakat
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.equalitygender.R
+import com.example.equalitygender.models.Informasi
+import com.example.equalitygender.models.Post
+import com.example.equalitygender.models.User
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BerandaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BerandaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var textViewWelcome: TextView
+    private lateinit var textViewInformasiContent: TextView
+    private lateinit var textViewBerbagiUser: TextView
+    private lateinit var textViewBerbagiContent: TextView
+    private lateinit var imageViewInformasi: ImageView
+    private lateinit var imageViewUserProfile: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_beranda, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BerandaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BerandaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        firestore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        textViewWelcome = view.findViewById(R.id.textViewWelcome)
+        textViewInformasiContent = view.findViewById(R.id.textViewInformasiContent)
+        textViewBerbagiUser = view.findViewById(R.id.textViewBerbagiUser)
+        textViewBerbagiContent = view.findViewById(R.id.textViewBerbagiContent)
+        imageViewInformasi = view.findViewById(R.id.imageViewInformasi)
+        imageViewUserProfile = view.findViewById(R.id.imageViewUserProfile)
+
+        fetchUser()
+        fetchInformasiHighlight()
+        fetchBerbagiHighlight()
+
+        view.findViewById<TextView>(R.id.textViewLihatSelengkapnyaInformasi).setOnClickListener {
+            navigateToFragment(InformasiFragment())
+        }
+
+        view.findViewById<TextView>(R.id.textViewLihatSelengkapnyaBerbagi).setOnClickListener {
+            navigateToFragment(BerbagiFragment())
+        }
+    }
+
+    private fun fetchUser() {
+        val userId = auth.currentUser?.uid ?: return
+        firestore.collection("users").document(userId).get()
+            .addOnSuccessListener { document ->
+                val user = document.toObject(User::class.java)
+                user?.let {
+                    textViewWelcome.text = "Hai ${it.username}!"
+                    if (it.profileImageUrl.isNotEmpty()) {
+                        Glide.with(this).load(it.profileImageUrl).into(imageViewUserProfile)
+                    }
                 }
             }
+            .addOnFailureListener { exception ->
+                // Handle error
+            }
+    }
+
+    private fun fetchInformasiHighlight() {
+        firestore.collection("informasi")
+            .orderBy("tanggal", com.google.firebase.firestore.Query.Direction.DESCENDING)
+            .limit(1)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val informasi = document.toObject(Informasi::class.java)
+                    textViewInformasiContent.text = informasi.judul
+                    Glide.with(this).load(informasi.gambar).into(imageViewInformasi)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle error
+            }
+    }
+
+    private fun fetchBerbagiHighlight() {
+        firestore.collection("posts")
+            .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
+            .limit(1)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val post = document.toObject(Post::class.java)
+                    fetchPostUserDetails(post)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle error
+            }
+    }
+
+    private fun fetchPostUserDetails(post: Post) {
+        firestore.collection("users").document(post.userId).get()
+            .addOnSuccessListener { document ->
+                val user = document.toObject(User::class.java)
+                user?.let {
+                    textViewBerbagiUser.text = it.username
+                    textViewBerbagiContent.text = getTruncatedContent(post.isi)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle error
+            }
+    }
+
+    private fun getTruncatedContent(content: String): String {
+        val lines = content.split("\n")
+        return if (lines.size <= 1) {
+            lines.joinToString("\n")
+        } else {
+            lines.take(1).joinToString("\n") + "..."
+        }
+    }
+
+    private fun navigateToFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fl_wraper, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

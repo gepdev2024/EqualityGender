@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.equalitygender.Admin
 import com.example.equalitygender.Masyarakat
 import com.example.equalitygender.R
 import com.google.firebase.auth.FirebaseAuth
@@ -42,10 +43,10 @@ class SplashFragment : Fragment() {
         handler.postDelayed({
 
             if (isLogin) {
-                val intent = Intent(activity, Masyarakat::class.java)
-                startActivity(intent)
-                activity?.finish()
-//                navController.navigate(R.id.action_splashFragment_to_loginFragment)
+//                val intent = Intent(activity, Admin::class.java)
+//                startActivity(intent)
+//                activity?.finish()
+                navController.navigate(R.id.action_splashFragment_to_loginFragment)
 
             }else
             navController.navigate(R.id.action_splashFragment_to_loginFragment)

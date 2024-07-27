@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary2"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="Lapor"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextKategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Topik Permasalahan"
+            android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editTextTanggalKejadian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:drawableTint="@color/material_dynamic_neutral30"
+                android:hint="Tanggal Kejadian"
+                android:inputType="date" />
+
+        <EditText
+            android:id="@+id/editTextLokasiKejadian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lokasi Kejadian"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextDeskripsiKejadian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deskripsi Kejadian"
+            android:inputType="textMultiLine"
+            android:minHeight="100dp"
+            android:gravity="top|start" />
+
+        <Button
+            android:id="@+id/buttonUploadMedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorPrimary3"
+            android:text="Tambah Gambar (Bukti)" />
+
+        <ImageView
+            android:id="@+id/imageViewMedia"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorPrimary2"
+            android:text="Kirim Laporan" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

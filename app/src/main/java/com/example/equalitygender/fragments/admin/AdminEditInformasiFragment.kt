@@ -181,7 +181,7 @@ class AdminInformasiEditFragment : Fragment() {
         informasiId?.let {
             firestore.collection("informasi").document(it).update(info as Map<String, Any>)
                 .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Informasi updated successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Artikel berhasil diubah!", Toast.LENGTH_SHORT).show()
                     requireActivity().supportFragmentManager.popBackStack()
                 }
                 .addOnFailureListener { e ->
